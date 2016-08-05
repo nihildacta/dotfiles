@@ -40,7 +40,6 @@ autocmd BufReadPost *
 let g:ctrlp_show_hidden=1
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_max_height=30
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 :nnoremap § :nohlsearch<cr>
 
@@ -65,6 +64,8 @@ Plug 'scrooloose/syntastic'
 Plug 'lervag/vimtex'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
+Plug 'laurentb/vim-cute-php', { 'for' : 'php'}
+Plug 'joonty/vdebug'
 
 call plug#end()
 filetype plugin indent on
@@ -94,7 +95,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
-let g:syntastic_php_phpcs_args = '--standard=~/.composer/vendor/gatewit/githooks/src/standards/phpcs/Gatewit/ruleset.xml --encoding=utf8'
+let g:syntastic_php_phpcs_args = '--standard=PSR2 --encoding=utf8'
+
+let g:vdebug_options = {}
+let g:vdebug_options["port"] = 9000
+let g:vdebug_options["break_on_open"] = 0
 
 let g:airline_powerline_fonts = 1
 
@@ -143,3 +148,7 @@ map <C-p> :CtrlP<CR>
 map <C-k> <Esc>:tabprev<CR>
 map <C-j> <Esc>:tabnext<CR>
 map <C-t> <Esc>:tabnew<CR>
+
+if filereadable("./.lnvimrc")
+    execute "source ./.lnvimrc"
+endif
