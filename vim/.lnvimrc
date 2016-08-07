@@ -1,0 +1,4 @@
+    let g:vdebug_options = {
+    \ 'path_maps': {"/remote/path" : "/locah/path"},
+    \ 'server': '0.0.0.0'
+    \}
