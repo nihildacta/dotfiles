@@ -55,24 +55,19 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
-Plug 'shawncplus/phpcomplete.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'mpollmeier/vim-scalaConceal', { 'for': 'scala' }
-Plug 'ensime/ensime-vim', { 'for': 'scala' }
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic'
 Plug 'lervag/vimtex'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
-Plug 'laurentb/vim-cute-php', { 'for' : 'php'}
 Plug 'marciomazza/vim-brogrammer-theme'
 Plug 'joonty/vdebug'
-Plug 'junegunn/limelight.vim'
+Plug 'w0rp/ale'
 
 call plug#end()
 filetype plugin indent on
@@ -94,9 +89,6 @@ if (exists('+colorcolumn'))
     highlight ColorColumn ctermbg=237
 endif
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 set viminfo='100,n$HOME/.vim/files/info/viminfo
 set tags=./.git/tags;
 let g:syntastic_always_populate_loc_list = 1
@@ -148,15 +140,9 @@ let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 let EnErrorStyle = 'EnError'
 
-" The Silver Searcher
 if executable('ag')
-  " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l -u --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
 

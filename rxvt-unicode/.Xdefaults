@@ -76,7 +76,7 @@ URxvt.color15 : #FFFFFF
 ! URxvt*path:                           search path
 ! URxvt*backgroundPixmap:               file[;geom]
 ! URxvt*iconFile:                       file
-URxvt*font:                             xft:Ubuntu Mono:pixelsizei=16,style=regular
+URxvt*font:                             xft:InconsolataForPowerline Nerd Font:pixelsize=16,style=regular
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
