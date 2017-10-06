@@ -20,7 +20,7 @@ set tabstop=4
 set shiftwidth=4
 set number
 set list listchars=tab:\ \ ,trail:·
-
+set wildmenu
 set timeout timeoutlen=1000 ttimeoutlen=100
 set laststatus=2
 set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
@@ -28,11 +28,12 @@ set guioptions-=T
 set encoding=utf8
 set autoread
 set shell=/bin/bash
-
+set path+=**
 set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+set notagrelative
 
 set backupdir=~/tmp
 set dir=~/tmp
@@ -74,7 +75,6 @@ filetype plugin indent on
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :retab
 
-
 set background=dark
 colorscheme brogrammer
 set diffopt+=vertical
@@ -90,7 +90,7 @@ if (exists('+colorcolumn'))
 endif
 
 set viminfo='100,n$HOME/.vim/files/info/viminfo
-set tags=./.git/tags;
+set tags=./.git/tags;/
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -157,7 +157,7 @@ map <C-j> <Esc>:tabprev<CR>
 map <C-k> <Esc>:tabnext<CR>
 map <C-t> <Esc>:tabnew<CR>
 map <F8> :TagbarToggle<CR>
-map <C-F12> :!ctags -R -f ./.git/tags .<CR>
+map <F12> :!ctags -R --exclude=target --exclude=vendor -f ./.git/tags . <CR>
 nnoremap <Leader>* :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 if filereadable("./.lnvimrc")
