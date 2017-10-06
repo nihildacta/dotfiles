@@ -46,6 +46,7 @@ autocmd BufReadPost *
 let g:ctrlp_show_hidden=1
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_max_height=30
+let g:scala_sort_across_groups=1
 
 :nnoremap § :nohlsearch<cr>
 
