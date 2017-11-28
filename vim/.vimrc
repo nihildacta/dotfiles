@@ -75,6 +75,13 @@ call plug#end()
 filetype plugin indent on
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :retab
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * if expand("<afile>")!~#'^\w\+:/'
+        \ && !isdirectory(expand("%:h"))
+        \ | execute "silent! !mkdir -p ".shellescape(expand('%:h'), 1)
+        \ | redraw! | endif
+augroup END
 
 set background=dark
 colorscheme brogrammer
