@@ -76,7 +76,7 @@ URxvt.color15 : #FFFFFF
 ! URxvt*path:                           search path
 ! URxvt*backgroundPixmap:               file[;geom]
 ! URxvt*iconFile:                       file
-URxvt*font:                             xft:InconsolataForPowerline Nerd Font:pixelsize=24,style=regular
+URxvt*font:                             xft:AnonymicePowerline Nerd Font:pixelsize=24,style=Medium
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
