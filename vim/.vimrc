@@ -75,6 +75,10 @@ call plug#end()
 filetype plugin indent on
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :retab
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell spelllang=en_us
+
+
 augroup BWCCreateDir
     autocmd!
     autocmd BufWritePre * if expand("<afile>")!~#'^\w\+:/'
