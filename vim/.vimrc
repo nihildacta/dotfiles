@@ -67,7 +67,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
-Plug 'marciomazza/vim-brogrammer-theme'
+Plug 'morhetz/gruvbox'
 Plug 'joonty/vdebug'
 Plug 'w0rp/ale'
 
@@ -87,9 +87,13 @@ augroup BWCCreateDir
         \ | redraw! | endif
 augroup END
 
-set background=dark
-colorscheme brogrammer
+colorscheme gruvbox
 set diffopt+=vertical
+set background=dark
+
+if strftime("%H") < 18
+  set background=light
+endif
 
 if &diff
     syntax off
