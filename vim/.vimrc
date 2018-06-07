@@ -91,7 +91,7 @@ colorscheme gruvbox
 set diffopt+=vertical
 set background=dark
 
-if strftime("%H") < 18
+if strftime("%H") < 18 && strftime("%H") > 7
   set background=light
 endif
 
