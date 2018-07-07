@@ -12,7 +12,7 @@ set hlsearch
 set smartcase
 set hidden
 set nofoldenable
-set nowrap
+set wrap
 set scrolloff=10
 set backspace=indent,eol,start
 set expandtab
@@ -70,6 +70,7 @@ Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'joonty/vdebug'
 Plug 'w0rp/ale'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 filetype plugin indent on
