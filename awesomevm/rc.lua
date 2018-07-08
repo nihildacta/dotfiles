@@ -106,13 +106,11 @@ local tasklist_buttons = gears.table.join(
 )
 
 
-
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", wallpaper.set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
-    wallpaper.set_wallpaper(s)
-
+     wallpaper.set_wallpaper(s)
     -- Each screen has its own tag table.
     awful.tag({ "d", "w", "m", "x" }, s, awful.layout.layouts[1])
 
