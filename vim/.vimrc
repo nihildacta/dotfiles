@@ -34,7 +34,7 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 set notagrelative
-
+set cryptmethod=blowfish2
 set backupdir=~/tmp
 set dir=~/tmp
 
@@ -78,7 +78,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :retab
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell spelllang=en_us
-
+au CursorHold * nested update
 
 augroup BWCCreateDir
     autocmd!
@@ -92,10 +92,6 @@ colorscheme gruvbox
 set diffopt+=vertical
 set background=dark
 
-if strftime("%H") < 18 && strftime("%H") > 7
-  set background=light
-endif
-
 if &diff
     syntax off
     set diffopt+=iwhite
@@ -108,19 +104,18 @@ endif
 
 set viminfo='100,n$HOME/.vim/files/info/viminfo
 set tags=./.git/tags;/
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-let g:syntastic_php_phpcs_args = '--standard=PSR1,PSR2'
 
 let g:vdebug_options = {}
 let g:vdebug_options["port"] = 9000
 let g:vdebug_options["break_on_open"] = 0
 let g:vdebug_features = { 'max_children': 128 }
 let g:airline_powerline_fonts = 1
+let g:ale_completion_enabled = 1
+
+let g:ale_linters = {
+\   'scala': ['sbtserver'],
+\}
+
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
