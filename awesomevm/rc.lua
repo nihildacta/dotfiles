@@ -14,7 +14,7 @@ require("nihil.exception.handler")
 beautiful.init("~/dotfiles/awesomevm/themes/bladerunner/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt"
+terminal = "termite"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 

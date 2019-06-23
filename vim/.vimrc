@@ -56,7 +56,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
-Plug 'majutsushi/tagbar'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'bling/vim-airline'
@@ -64,13 +63,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'tpope/vim-fugitive'
-Plug 'lervag/vimtex'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'joonty/vdebug'
 Plug 'w0rp/ale'
-Plug 'junegunn/goyo.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -78,6 +75,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :retab
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell spelllang=en_us
+autocmd BufNewFile,BufRead *.html.twig   set syntax=html
 au CursorHold * nested update
 
 augroup BWCCreateDir
@@ -98,7 +96,7 @@ if &diff
 endif
 
 if (exists('+colorcolumn'))
-    set colorcolumn=80
+    set colorcolumn=120
     highlight ColorColumn ctermbg=237
 endif
 
