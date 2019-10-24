@@ -249,8 +249,8 @@ globalkeys = gears.table.join(
    -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
-    awful.key({ }, "Print", function ()
-        awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'", false)
+    awful.key({ modkey }, "Print", function ()
+        awful.util.spawn_with_shell("maim -s --hidecursor /tmp/screenshot.png && xclip -selection clipboard /tmp/screenshot.png -t image/png")
     end)
 )
 
