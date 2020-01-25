@@ -66,7 +66,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'Yggdroot/indentLine'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 filetype plugin indent on
@@ -110,6 +111,9 @@ let g:vdebug_options["break_on_open"] = 0
 let g:vdebug_features = { 'max_children': 128 }
 let g:airline_powerline_fonts = 1
 let g:ale_completion_enabled = 1
+let g:indentLine_showFirstIndentLevel = 0
+let g:indentLine_setColors = 0
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -144,7 +148,6 @@ let g:NERDTreeIndicatorMapCustom = {
 
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
-let EnErrorStyle = 'EnError'
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor

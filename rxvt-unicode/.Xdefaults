@@ -7,7 +7,7 @@
 ! URxvt*skipScroll:                     boolean
 ! URxvt*pastableTabs:                   boolean
 ! URxvt*scrollstyle:                    mode
-URxvt*scrollBar:                    false
+! URxvt*scrollBar:                    false
 ! URxvt*scrollBar_right:                boolean
 ! URxvt*scrollBar_floating:             boolean
 ! URxvt*scrollBar_align:                mode
@@ -16,9 +16,9 @@ URxvt*scrollBar:                    false
 ! URxvt*scrollTtyKeypress:              boolean
 ! URxvt*scrollWithBuffer:               boolean
 ! URxvt*inheritPixmap:                  boolean
-URxvt*transparent:                   true
+! URxvt*transparent:                   true
 ! URxvt*tintColor:                      color
-URxvt*shading:                       30
+! URxvt*shading:                       30
 ! URxvt*blurRadius:                     HxV
 ! URxvt*fading:                         number
 ! URxvt*fadeColor:                      color
@@ -33,32 +33,32 @@ URxvt*shading:                       30
 ! URxvt*cursorUnderline:                boolean
 ! URxvt*cursorBlink:                    boolean
 ! URxvt*pointerBlank:                   boolean
-URxvt*background: #000000
-URxvt*foreground: #ffffff
+! URxvt*background: #000000
+! URxvt*foreground: #ffffff
 ! black
-URxvt.color0  : #000000
-URxvt.color8  : #555555
+! URxvt.color0  : #000000
+! URxvt.color8  : #555555
 ! red
-URxvt.color1  : #AA0000
-URxvt.color9  : #FF5555
+! URxvt.color1  : #AA0000
+! URxvt.color9  : #FF5555
 ! green
-URxvt.color2  : #00AA00
-URxvt.color10 : #55FF55
+! URxvt.color2  : #00AA00
+! URxvt.color10 : #55FF55
 ! yellow
-URxvt.color3  : #AA5500
-URxvt.color11 : #FFFF55
+! URxvt.color3  : #AA5500
+! URxvt.color11 : #FFFF55
 ! blue
-URxvt.color4  : #0000AA
-URxvt.color12 : #5555FF
+! URxvt.color4  : #0000AA
+! URxvt.color12 : #5555FF
 ! magenta
-URxvt.color5  : #AA00AA
-URxvt.color13 : #FF55FF
+! URxvt.color5  : #AA00AA
+! URxvt.color13 : #FF55FF
 ! cyan
-URxvt.color6  : #00AAAA
-URxvt.color14 : #55FFFF
+! URxvt.color6  : #00AAAA
+! URxvt.color14 : #55FFFF
 ! white
-URxvt.color7  : #AAAAAA
-URxvt.color15 : #FFFFFF
+! URxvt.color7  : #AAAAAA
+! URxvt.color15 : #FFFFFF
 ! URxvt*colorBD:                        color
 ! URxvt*colorIT:                        color
 ! URxvt*colorUL:                        color
@@ -76,7 +76,7 @@ URxvt.color15 : #FFFFFF
 ! URxvt*path:                           search path
 ! URxvt*backgroundPixmap:               file[;geom]
 ! URxvt*iconFile:                       file
-URxvt*font:                             xft:FuraCode Nerd Font Mono:pixelsize=24,style=Retina
+! URxvt*font:                             xft:FuraCode Nerd Font Mono:pixelsize=24,style=Retina
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
