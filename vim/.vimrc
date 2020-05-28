@@ -37,6 +37,7 @@ set notagrelative
 set cryptmethod=blowfish2
 set backupdir=~/tmp
 set dir=~/tmp
+set spellfile=~/.vim/spell/en.utf-8.add
 
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -62,17 +63,20 @@ Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
-Plug 'Yggdroot/indentLine'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+Plug 'dense-analysis/ale',
+Plug 'vim-vdebug/vdebug',
 call plug#end()
+
 filetype plugin indent on
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :retab
+autocmd BufWritePre *.scala :SortScalaImports
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.html.twig   set syntax=html
@@ -88,7 +92,13 @@ augroup BWCCreateDir
         \ | redraw! | endif
 augroup END
 
+augroup spellcheck_colors
+  autocmd!
+  autocmd ColorScheme gruvbox hi SpellBad cterm=underline ctermfg=red
+augroup END
+
 colorscheme gruvbox
+
 set diffopt+=vertical
 set background=dark
 
@@ -111,9 +121,18 @@ let g:vdebug_options["break_on_open"] = 0
 let g:vdebug_features = { 'max_children': 128 }
 let g:airline_powerline_fonts = 1
 let g:ale_completion_enabled = 1
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+            \ 'go': ["golangserver", "golint", "gobuild", "govet"],
+            \ 'php': ['phpstan']
+            \ }
+let g:ale_fixers = {
+            \ 'go': ["gofmt", "goimports"]
+            \ }
 let g:indentLine_showFirstIndentLevel = 0
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -160,15 +179,17 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
 map <C-n> :NERDTreeToggle<CR>
 map <C-p> :CtrlP<CR>
 map <C-j> <Esc>:tabprev<CR>
 map <C-k> <Esc>:tabnext<CR>
 map <C-t> <Esc>:tabnew<CR>
-
 map <F8> :TagbarToggle<CR>
 map <F12> :!ctags -R --exclude=target --exclude=vendor -f ./.git/tags . <CR>
 nnoremap <Leader>* :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap \ :Ag<SPACE>
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 
