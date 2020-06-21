@@ -69,8 +69,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dense-analysis/ale',
-Plug 'vim-vdebug/vdebug',
+Plug 'dense-analysis/ale'
+Plug 'vim-vdebug/vdebug'
 call plug#end()
 
 filetype plugin indent on
@@ -80,9 +80,9 @@ autocmd BufWritePre *.scala :SortScalaImports
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.html.twig   set syntax=html
-au BufRead,BufNewFile *.sbt set filetype=scala
+autocmd BufRead,BufNewFile *.sbt set filetype=scala
 autocmd FileType json syntax match Comment +\/\/.\+$+
-au CursorHold * nested update
+"au CursorHold * nested update
 
 augroup BWCCreateDir
     autocmd!
@@ -120,14 +120,15 @@ let g:vdebug_options["port"] = 9000
 let g:vdebug_options["break_on_open"] = 0
 let g:vdebug_features = { 'max_children': 128 }
 let g:airline_powerline_fonts = 1
-let g:ale_completion_enabled = 1
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
             \ 'go': ["golangserver", "golint", "gobuild", "govet"],
-            \ 'php': ['phpstan']
+            \ 'php': ['phpstan'],
+            \ 'scala': []
             \ }
 let g:ale_fixers = {
-            \ 'go': ["gofmt", "goimports"]
+            \ 'go': ["gofmt", "goimports"],
+            \ 'scala': []
             \ }
 let g:indentLine_showFirstIndentLevel = 0
 let g:indentLine_setColors = 0
@@ -189,7 +190,7 @@ map <C-t> <Esc>:tabnew<CR>
 map <F8> :TagbarToggle<CR>
 map <F12> :!ctags -R --exclude=target --exclude=vendor -f ./.git/tags . <CR>
 nnoremap <Leader>* :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-nnoremap \ :Ag<SPACE>
+nnoremap <Leader>ag :Ag<SPACE>
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 
