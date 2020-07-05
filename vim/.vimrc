@@ -82,7 +82,6 @@ autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.html.twig   set syntax=html
 autocmd BufRead,BufNewFile *.sbt set filetype=scala
 autocmd FileType json syntax match Comment +\/\/.\+$+
-"au CursorHold * nested update
 
 augroup BWCCreateDir
     autocmd!
@@ -122,7 +121,7 @@ let g:vdebug_features = { 'max_children': 128 }
 let g:airline_powerline_fonts = 1
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
-            \ 'go': ["golangserver", "golint", "gobuild", "govet"],
+            \ 'go': ["golint"],
             \ 'php': ['phpstan'],
             \ 'scala': []
             \ }
