@@ -54,7 +54,6 @@ let g:scala_sort_across_groups=1
 
 call plug#begin('~/.vim/plugged')
 " plugins goes here
-
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'kien/rainbow_parentheses.vim'
@@ -63,7 +62,6 @@ Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
@@ -72,8 +70,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'vim-vdebug/vdebug'
 Plug 'godlygeek/tabular'
+Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 call plug#end()
 
 filetype plugin indent on
@@ -85,6 +87,7 @@ autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.html.twig   set syntax=html
 autocmd BufRead,BufNewFile *.sbt set filetype=scala
 autocmd FileType json syntax match Comment +\/\/.\+$+
+autocmd FileType scss setl iskeyword+=@-@
 
 augroup BWCCreateDir
     autocmd!
@@ -136,7 +139,6 @@ let g:indentLine_showFirstIndentLevel = 0
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:ale_php_phpcs_options = '--standard=PSR2'
-
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
