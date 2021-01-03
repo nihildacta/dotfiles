@@ -53,29 +53,37 @@ let g:scala_sort_across_groups=1
 
 
 call plug#begin('~/.vim/plugged')
-" plugins goes here
+" Nerd tree things
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
-Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'vim-vdebug/vdebug'
 Plug 'godlygeek/tabular'
-Plug 'lervag/vimtex'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+
+" Language support
+Plug 'elixir-editors/vim-elixir'
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'lervag/vimtex'
+
+" Formating
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
+"
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 filetype plugin indent on

@@ -18,5 +18,5 @@
   "metals.statusBarEnabled": true,
   "coc.preferences.formatOnSaveFiletypes": ["scala", "go"],
   "metals.excludedPackages": ["akka.actor.typed.javadsl"],
-  "metals.serverVersion": "0.9.6"
+  "metals.serverVersion": "0.9.7"
 }

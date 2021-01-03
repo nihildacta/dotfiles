@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
-let g:netrw_dirhist_7='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web-carspt/src/lib/bundles/adverts/service'
-let g:netrw_dirhist_6='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/bundles/api'
-let g:netrw_dirhist_5='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/bundles/api/v3'
-let g:netrw_dirhist_4='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/bundles/api/v1/controller'
-let g:netrw_dirhist_3='/home/nihil/workspace/nihildacta/floot/project'
-let g:netrw_dirhist_2='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/enums'
-let g:netrw_dirhist_1='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/tests/lib/exception'
