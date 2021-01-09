@@ -70,6 +70,7 @@ Plug 'dense-analysis/ale'
 Plug 'vim-vdebug/vdebug'
 Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'andrejlevkovitch/vim-lua-format', { 'for':  'lua' }
 
 " Language support
 Plug 'elixir-editors/vim-elixir'
@@ -96,6 +97,7 @@ autocmd BufNewFile,BufRead *.html.twig   set syntax=html
 autocmd BufRead,BufNewFile *.sbt set filetype=scala
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd FileType scss setl iskeyword+=@-@
+autocmd BufWrite *.lua call LuaFormat()
 
 augroup BWCCreateDir
     autocmd!
