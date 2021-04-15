@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/city'
+let g:netrw_dirhist_4='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib'
+let g:netrw_dirhist_3='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist'
+let g:netrw_dirhist_2='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/bundles'
+let g:netrw_dirhist_1='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/bundles/eurotaxexporter'
+let g:netrw_dirhist_0='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/bundles/eurotaxexporter/service'
+let g:netrw_dirhist_9='/etc'
+let g:netrw_dirhist_8='/etc/wpa_supplicant'
+let g:netrw_dirhist_7='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/bundles/answers/service'
+let g:netrw_dirhist_6='/home/nihil/workspace/olx/verticals-cars-atlas-web-dist/plugins/naspersclassifieds-regional/verticals-cars-atlas-web/src/lib/bundles/answers'

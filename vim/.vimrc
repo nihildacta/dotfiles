@@ -56,7 +56,6 @@ call plug#begin('~/.vim/plugged')
 " Nerd tree things
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
-
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'bling/vim-airline'
@@ -69,14 +68,24 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'vim-vdebug/vdebug'
 Plug 'godlygeek/tabular'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
-Plug 'andrejlevkovitch/vim-lua-format', { 'for':  'lua' }
 
-" Language support
+"""" Language support
+" elixr
 Plug 'elixir-editors/vim-elixir'
+
+" scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+
+" markdonw
 Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+
+" latex
 Plug 'lervag/vimtex'
+
+" lua
+Plug 'andrejlevkovitch/vim-lua-format', { 'for':  'lua' }
+"""" End Language support
 
 " Formating
 Plug 'prettier/vim-prettier', {
@@ -93,6 +102,7 @@ autocmd BufWritePre * :retab
 autocmd BufWritePre *.scala :SortScalaImports
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.html.twig   set syntax=html
 autocmd BufRead,BufNewFile *.sbt set filetype=scala
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -148,7 +158,7 @@ let g:ale_fixers = {
 let g:indentLine_showFirstIndentLevel = 0
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:ale_php_phpcs_options = '--standard=PSR2'
+let g:ale_php_phpcs_options = '--config-set default_standard'
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
