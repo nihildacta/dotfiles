@@ -50,13 +50,11 @@ let g:scala_sort_across_groups=1
 
 :nnoremap § :nohlsearch<cr>
 
-
 call plug#begin('~/.vim/plugged')
 " Nerd tree things
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
@@ -67,6 +65,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'vim-vdebug/vdebug'
 Plug 'godlygeek/tabular'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 """" Language support
 " elixr
@@ -196,7 +197,6 @@ let g:rbpt_loadcmd_toggle = 0
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
 endif
 
 au VimEnter * RainbowParenthesesToggle
@@ -204,19 +204,20 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-
 map <C-n> :NERDTreeToggle<CR>
-map <C-p> :CtrlP<CR>
 map <C-j> <Esc>:tabprev<CR>
 map <C-k> <Esc>:tabnext<CR>
 map <C-t> <Esc>:tabnew<CR>
 map <F8> :TagbarToggle<CR>
-map <F12> :!ctags -R --exclude=target --exclude=vendor -f ./.git/tags . <CR>
-nnoremap <Leader>* :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-nnoremap <Leader>ag :Ag<SPACE>
+
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
