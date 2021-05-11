@@ -444,3 +444,8 @@ client.connect_signal("focus",
 client.connect_signal("unfocus",
                       function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+do
+    local apps = {"firefox", "signal-desktop", "telegram-desktop", "potify"}
+    for _, app in pairs(apps) do awful.util.spawn(app) end
+end
