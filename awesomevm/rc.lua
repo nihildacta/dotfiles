@@ -1,3 +1,9 @@
+-- Standard awesome library
+local awesome = awesome -- luacheck: ignore
+local root = root -- luacheck: ignore
+local screen = screen -- luacheck: ignore
+local client = client -- luacheck: ignore
+
 require("awful.autofocus")
 require("awful.hotkeys_popup.keys.vim")
 require("nihil.exception.handler")
@@ -10,7 +16,6 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 local wallpaper = require("nihil.theme.wallpaper")
 
--- {{{ Variable definitions
 beautiful.init("~/dotfiles/awesomevm/themes/bladerunner/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
@@ -28,7 +33,6 @@ awful.layout.layouts = {
     awful.layout.suit.max, awful.layout.suit.max.fullscreen,
     awful.layout.suit.corner.nw, awful.layout.suit.floating
 }
--- }}}
 
 -- {{{ Helper functions
 local function client_menu_toggle_fn()
@@ -291,15 +295,15 @@ end, {description = "(un)maximize horizontally", group = "client"}))
 for i = 1, 9 do
     globalkeys = gears.table.join(globalkeys, -- View tag only.
     awful.key({modkey}, "#" .. i + 9, function()
-        local screen = awful.screen.focused()
-        local tag = screen.tags[i]
+        local screenfocus = awful.screen.focused()
+        local tag = screenfocus.tags[i]
         if tag then tag:view_only() end
     end, {description = "view tag #" .. i, group = "tag"}),
     -- Toggle tag display.
                                   awful.key({modkey, "Control"}, "#" .. i + 9,
                                             function()
-        local screen = awful.screen.focused()
-        local tag = screen.tags[i]
+        local screenfocus = awful.screen.focused()
+        local tag = screenfocus.tags[i]
         if tag then awful.tag.viewtoggle(tag) end
     end, {description = "toggle tag #" .. i, group = "tag"}),
     -- Move client to tag.
@@ -447,5 +451,12 @@ client.connect_signal("unfocus",
 
 do
     local apps = {"firefox", "signal-desktop", "telegram-desktop", "potify"}
-    for _, app in pairs(apps) do awful.util.spawn(app) end
+    for _, app in pairs(apps) do
+        awful.spawn.once(app, awful.rules.rules, function(c)
+            for _, value in pairs(apps) do
+                if value == c.class then return true end
+            end
+            return false
+        end)
+    end
 end
