@@ -34,7 +34,6 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 set notagrelative
-set cryptmethod=blowfish2
 set backupdir=~/tmp
 set dir=~/tmp
 set spellfile=~/.vim/spell/en.utf-8.add
