@@ -214,10 +214,11 @@ map <F8> :TagbarToggle<CR>
 set updatetime=300
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-g> <cmd>Telescope git_files<cr>
+nnoremap <C-a> <cmd>Telescope live_grep<cr>
+nnoremap <C-b> <cmd>Telescope buffers<cr>
+nnoremap <C-h> <cmd>Telescope help_tags<cr>
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
