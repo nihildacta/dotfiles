@@ -1,6 +1,5 @@
 syntax on
 
-set nocompatible
 set backup
 set writebackup
 set noswapfile
@@ -208,7 +207,6 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-j> <Esc>:tabprev<CR>
 map <C-k> <Esc>:tabnext<CR>
 map <C-t> <Esc>:tabnew<CR>
-map <F8> :TagbarToggle<CR>
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
