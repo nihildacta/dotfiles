@@ -354,33 +354,14 @@ awful.rules.rules = {
             placement = awful.placement.no_overlap +
                 awful.placement.no_offscreen
         }
-    }, -- Floating clients.
-    {
-        rule_any = {
-            instance = {
-                "DTA", -- Firefox addon DownThemAll.
-                "copyq" -- Includes session name in class.
-            },
-            class = {
-                "Arandr", "Gpick", "Kruler", "MessageWin", -- kalarm.
-                "Sxiv", "Wpa_gui", "pinentry", "veromix", "xtightvncviewer"
-            },
-
-            name = {
-                "Event Tester" -- xev.
-            },
-            role = {
-                "AlarmWindow", -- Thunderbird's calendar.
-                "pop-up" -- e.g. Google Chrome's (detached) Developer Tools.
-            }
-        },
-        properties = {floating = true}
     }, -- Add titlebars to normal clients and dialogs
-    {
+    {rule_any = {class = {"Firefox"}}, properties = {tag = "m"}}, {
+        rule_any = {class = {"Signal", "Telegram", "Spotify"}},
+        properties = {tag = "x"}
+    }, {
         rule_any = {type = {"normal", "dialog"}},
         properties = {titlebars_enabled = false}
     }
-
 }
 -- }}}
 
@@ -450,11 +431,16 @@ client.connect_signal("unfocus",
 -- }}}
 
 do
-    local apps = {"firefox", "signal-desktop", "telegram-desktop", "potify"}
+    local apps = {
+        {cmd = "firefox", class = "Firefox"},
+        {cmd = "signal-desktop", class = "Signal"},
+        {cmd = "telegram-desktop", class = "Telegram"},
+        {cmd = "potify", class = "Potify"}
+    }
     for _, app in pairs(apps) do
-        awful.spawn.once(app, awful.rules.rules, function(c)
+        awful.spawn.once(app.cmd, awful.rules.rules, function(c)
             for _, value in pairs(apps) do
-                if value == c.class then return true end
+                if value.class == c.class then return false end
             end
             return false
         end)
